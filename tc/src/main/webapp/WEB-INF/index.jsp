@@ -12,6 +12,8 @@
 	src="http://cdn.hcharts.cn/highstock/highstock.js"></script>
 <script type="text/javascript"
 	src="http://cdn.hcharts.cn/highmaps/highmaps.js"></script>
+<script src="http://cdn.hcharts.cn/highcharts/modules/exporting.js"
+	type="text/javascript"></script>
 <script type="text/javascript">
 	function initReport() {
 		var user = {
@@ -29,8 +31,8 @@
 			}
 		});
 	};
-	
-	function initChart(data){
+
+	function initChart(data) {
 		$('#container').highcharts({
 			char : {
 				type : 'column'
@@ -53,17 +55,16 @@
 	$(function() {
 		initReport();
 	});
-	
 </script>
 <title>Insert title here</title>
 </head>
 <body>
 	<div id="container" style="min-width: 700px; height: 400px"></div>
 	${msg}
-	<form action="/tc/submit" method="post" enctype="application/x-www-form-urlencoded">
-		<input name="name" value="张" type="text" /> 
-		<input name="phone" value="三" type="text" />
-		<input name="address" value="三" type="text" />
+	<form action="/tc/submit" method="post"
+		enctype="application/x-www-form-urlencoded">
+		<input name="name" value="张" type="text" /> <input name="phone"
+			value="三" type="text" /> <input name="address" value="三" type="text" />
 		<input type="submit" name="submit" value="submit" />
 	</form>
 </body>
