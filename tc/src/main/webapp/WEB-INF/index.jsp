@@ -61,8 +61,9 @@
 <body>
 	<div id="container" style="min-width: 700px; height: 400px"></div>
 	${msg}
-	<form action="/tc/submit" method="post"
+	<form action="/tc/submit/{id}" method="post"
 		enctype="application/x-www-form-urlencoded">
+		<input type="hidden" value="111555555555555555555" name="id"/>
 		<input name="name" value="张" type="text" /> <input name="phone"
 			value="三" type="text" /> <input name="address" value="三" type="text" />
 		<input type="submit" name="submit" value="submit" />

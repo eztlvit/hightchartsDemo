@@ -6,6 +6,7 @@ import org.codehaus.jettison.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.DispatcherServlet;
@@ -36,8 +37,8 @@ public class Print {
 			@RequestParam(value = "char", required = false) String c,
 			User u)
 			throws JSONException {
-		System.out.println(c);
-		System.out.println(u.getPhone());
+//		System.out.println(c);
+//		System.out.println(u.getPhone());
 		JSONArray jsonArray = new JSONArray();
 		JSONObject jsonObject = new JSONObject();
 		JSONArray tempJsonArray = new JSONArray();
@@ -61,9 +62,16 @@ public class Print {
 		return jsonArray.toString();
 	}
 
-	@RequestMapping(value = "/submit")
-	public String submitForm(User user) {
+	@RequestMapping(value = "/submit/{id}",method=RequestMethod.POST)
+	public String submitForm(User user,String id) {
+		System.out.println(id);
 		System.out.println(user.getName());
+		return "index";
+	}
+	
+	@RequestMapping(value = "submit/{id}",method=RequestMethod.GET)
+	public String restful(Long id) {
+		System.out.println(id);
 		return "index";
 	}
 }
