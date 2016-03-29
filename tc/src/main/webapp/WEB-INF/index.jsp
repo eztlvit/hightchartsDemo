@@ -68,5 +68,53 @@
 			value="三" type="text" /> <input name="address" value="三" type="text" />
 		<input type="submit" name="submit" value="submit" />
 	</form>
+	
+	<div id="d1">
+		<ul class="u1">
+			<li data-id="1"><input type="checkbox" id="1" onclick=""/>1</li>
+			<li data-id="2"><input type="checkbox" id="2" onclick=""/>2</li>
+			<li data-id="3"><input type="checkbox" id="3" onclick=""/>3</li>
+			<li data-id="4"><input type="checkbox" id="4" onclick=""/>4</li>
+		</ul>
+	</div>
+	<input type="button" onclick="change()" value="改变"/>
+	<input type="button" onclick="recover()" value="恢复"/>
+	<h1>选中</h1>
+	<div id="d2">
+		<ul class="u2">
+			
+		</ul>
+	</div>
 </body>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript">
+	function change(){
+		var li = $(".u1 li input[type='checkbox']");
+		li.each(function (i){
+			if($(this).is(":checked")){
+				$(this).prop("checked",false);
+				//$(this).attr("type","hidden");
+				var tl = $(this).parent();
+				$(".u2").append(tl);
+			}
+		});
+	};
+	
+	function recover(){
+		/* var li = $(".u2 li");
+		for ( var j = 0; j < li.length; j++) {
+			$(li[j]).children().attr("type","checkbox");
+			$(".u1").append(li[j]);
+		}
+		$(".u2 li").remove(); */
+		
+		var li = $(".u2 li input[type='checkbox']");
+		li.each(function (i){
+			if($(this).is(":checked")){
+				$(this).prop("checked",false);
+				$(".u1").append($(this).parent());
+			}
+		});
+	}
+</script>
 </html>
